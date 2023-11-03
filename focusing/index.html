@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .circle-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            width: 400px;
+        }
+
+        .circle {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            margin: 5px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="circle-container">
+        <div class="circle" style="background-color: #3498db;" onclick="createNewPage('work')">Work</div>
+        <div class="circle" style="background-color: #e74c3c;" onclick="createNewPage('housing')">Housing</div>
+        <div class="circle" style="background-color: #27ae60;" onclick="createNewPage('food')">Food</div>
+        <div class="circle" style="background-color: #f1c40f;" onclick="createNewPage('social-life')">Social Life</div>
+        <div class="circle" style="background-color: #9b59b6;" onclick="createNewPage('family')">Family</div>
+    </div>
+    <script>
+        function createNewPage(label) {
+            const newPageContent = generateNewPageContent(label);
+            const newBlob = new Blob([newPageContent], { type: 'text/html' });
+            const url = URL.createObjectURL(newBlob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `${label}.html`;
+            a.style.display = 'none';
+            document.body.appendChild(a);
+            a.click();
+            window.URL.revokeObjectURL(url);
+        }
+
+        function generateNewPageContent(label) {
+            const newPageContent = `<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .circle-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .circle {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            margin: 5px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            color: white;
+        }
+
+        .input-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .input-field {
+            width: 120px;
+            padding: 5px;
+            border: 1px solid #ccc;
+        }
+
+        .update-button {
+            margin-top: 5px;
+            background-color: #3498db; /* Blue */
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="circle-container">
+        <div class="circle" style="background-color: #3498db;">Work</div>
+        <div class="input-container">
+            <input id="input1" class="input-field" type="text" placeholder="Enter Text">
+            <button class="update-button" onclick="updateCircle(1)">Update</button>
+        </div>
+        <div class="circle" style="background-color: #e74c3c;">Housing</div>
+        <div class="input-container">
+            <input id="input2" class="input-field" type="text" placeholder="Enter Text">
+            <button class="update-button" onclick="updateCircle(2)">Update</button>
+        </div>
+        <div class="circle" style="background-color: #27ae60;">Food</div>
+        <div class="input-container">
+            <input id="input3" class="input-field" type="text" placeholder="Enter Text">
+            <button class="update-button" onclick="updateCircle(3)">Update</button>
+        </div>
+        <div class="circle" style="background-color: #f1c40f;">Social Life</div>
+        <div class="input-container">
+            <input id="input4" class="input-field" type="text" placeholder="Enter Text">
+            <button class="update-button" onclick="updateCircle(4)">Update</button>
+        </div>
+        <div class="circle" style="background-color: #9b59b6;">Family</div>
+        <div class="input-container">
+            <input id="input5" class="input-field" type="text" placeholder="Enter Text">
+            <button class="update-button" onclick="updateCircle(5)">Update</button>
+        </div>
+    </div>
+    <script>
+        function updateCircle(circleNumber) {
+            const inputField = document.getElementById(`input${circleNumber}`);
+            const circle = document.querySelector(`.circle:nth-child(${circleNumber * 2 - 1})`);
+            circle.textContent = inputField.value;
+        }
+    </script>
+</body>
+</html>`;
+            return newPageContent;
+        }
+    </script>
+</body>
+</html>

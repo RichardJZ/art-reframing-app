@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        .container {
+            display: grid;
+            grid-template-rows: 10% 80% 10%;
+            grid-template-columns: : 10% 80% 10%;
+
+        }
+
+        #outer-square {
+            grid-column: 2/3;
+            grid-row: 2/3;
+            display: grid;
+            grid-template-columns:  repeat(3,33vw);
+            grid-template-rows: repeat(3,33vh);
+            width: 100%;
+
+            border: 2px solid black;
+
+        }
+        #outer-square-text{
+          grid-column: 1/2;
+          grid-row: 1/2;
+        }
+
+        #inner-square {
+          display: grid;
+          grid-template-columns:  1fr 1fr 1fr;
+          grid-template-rows: 1fr 1fr 1fr;
+            width: 100%;
+            border: 2px solid red;
+            grid-column: 2/3;
+            grid-row: 2/3;
+        }
+
+        #inner-square-text{
+          grid-column: 2/3;
+          grid-row: 2/3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div id="outer-square">
+            <div id="inner-square">
+            <div id="inner-square-text">hoi</div></div>
+            <div id="outer-square-text">hoi</div>
+        </div>
+
+    </div>
+    <input type="text" id="outer-input" placeholder="Tekst voor buitenste vierkant">
+    <button id="outer-button">Voer in</button>
+    <input type="text" id="inner-input" placeholder="Tekst voor binnenste vierkant">
+    <button id="inner-button">Voer in</button>
+
+    <script>
+        const outerSquare = document.getElementById("outer-square-text");
+        const innerSquare = document.getElementById("inner-square-text");
+        const outerInput = document.getElementById("outer-input");
+        const outerButton = document.getElementById("outer-button");
+        const innerInput = document.getElementById("inner-input");
+        const innerButton = document.getElementById("inner-button");
+
+        outerButton.addEventListener("click", function () {
+            outerSquare.innerText = outerInput.value;
+        });
+
+        innerButton.addEventListener("click", function () {
+            innerSquare.innerText = innerInput.value;
+        });
+    </script>
+</body>
+</html>

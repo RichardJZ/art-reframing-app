@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- You MUST include jQuery 3.4+ before Fomantic -->
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/fomantic-ui@2.9.3/dist/semantic.min.css">
+<script src="https://cdn.jsdelivr.net/npm/fomantic-ui@2.9.3/dist/semantic.min.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="styles3.css">
+</head>
+<body>
+  <input type="file" id="image-upload" accept="image/*">
+
+  <div class="image-container">
+      <img id="uploaded-image" alt="Uploaded Image">
+  </div>
+
+        <label for="text-input"> </label>
+        <input type="text" id="text-input">
+        <div id="text-output"></div>
+
+    <input type="range" id="color-slider" min="0" max="100" step="1" value="100">
+
+
+ <div class="slider-container">
+        <input type="range" id="width-slider" min="10" max="200" step="1" value="100">
+        <input type="range" id="brightness-slider" min="0" max="200" step="1" value="100">
+    </div>
+
+
+
+
+
+
+
+    <button id="clear-button">Clear</button>
+    <script src="script.js"></script>
+
+</body>
+</html>

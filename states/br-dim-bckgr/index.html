@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fomantic-ui/2.8.7/semantic.min.css">
+
+
+    <title>Image Adjuster</title>
+</head>
+<body class="ui container">
+    <h1 class="ui header">Image Adjuster</h1>
+
+    <!-- <div class="ui segment"> -->
+        <div class="image-container">
+            <img id="uploaded-image" alt="Uploaded Image">
+        </div>
+  <!--  </div>  -->
+    <div class="ui segment">
+        <h3 class="ui header">Adjustments</h3>
+        <div class="ui form">
+            <div class="field">
+                <label for="brightness-slider">Brightness</label>
+                <input type="range" id="brightness-slider" min="0" max="200" step="1" value="100">
+            </div>
+            <div class="field">
+                <label for="width-slider">Width</label>
+                <input type="range" id="width-slider" min="10" max="200" step="1" value="100">
+            </div>
+            <div class="field">
+                <label for="height-slider"></label>
+                <input type="range" id="height-slider" min="10" max="200" step="1" value="100">
+            </div>
+            <div class="field">
+                <label for="background-color-slider">Background Color</label>
+                <input type="range" id="background-color-slider" min="0" max="255" step="1" value="0">
+            </div>
+        </div>
+    </div>
+
+    <div class="ui segment">
+        <div class="ui form">
+            <div class="field">
+                <label for="image-upload">Upload Image</label>
+                <input type="file" id="image-upload" accept="image/*">
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

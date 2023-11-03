@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+
+
+        #outer-square {
+            margin: 100px auto;
+            width: 450px;
+            grid-column: 2/3;
+            grid-row: 2/3;
+            display: grid;
+            grid-template-columns:  repeat(3,150px);
+            grid-template-rows: repeat(3,150px);
+
+
+            border: 2px solid black;
+
+        }
+        #outer-square-text-top{
+          grid-column: 2/3;
+          grid-row: 1/2;
+          justify-self:center;
+          align-self: center;
+        }
+        #outer-square-text-left{
+          grid-column: 1/2;
+          grid-row: 2/3;
+          justify-self:center;
+          align-self: center;
+
+        }
+        #outer-square-text-bottom{
+          grid-column: 2/3;
+          grid-row: 3/4;
+          justify-self:center;
+          align-self: center;
+        }
+        #outer-square-text-right{
+          grid-column: 3/4;
+          grid-row: 2/3;
+          justify-self:center;
+          align-self: center;
+        }
+
+
+        #inner-square {
+          display: grid;
+          grid-template-columns:  1fr 1fr 1fr;
+          grid-template-rows: 1fr 1fr 1fr;
+            width: 100%;
+            border: 2px solid red;
+            grid-column: 2/3;
+            grid-row: 2/3;
+
+        }
+
+        #inner-square-text{
+          grid-column: 2/3;
+          grid-row: 2/3;
+          justify-self:center;
+          align-self: center;
+        }
+    </style>
+</head>
+<body>
+
+        <div id="outer-square">
+            <div id="inner-square">
+            <div id="inner-square-text"></div></div>
+            <div id="outer-square-text-top"></div>
+            <div id="outer-square-text-left"></div>
+            <div id="outer-square-text-right"></div>
+            <div id="outer-square-text-bottom"></div>
+        </div>
+
+
+    <input type="text" id="outer-input" placeholder="Tekst voor buitenste vierkant">
+    <button id="outer-button">Voer in</button>
+    <input type="text" id="inner-input" placeholder="Tekst voor binnenste vierkant">
+    <button id="inner-button">Voer in</button>
+
+    <script>
+        const outerSquareTop = document.getElementById("outer-square-text-top");
+        const outerSquareLeft = document.getElementById("outer-square-text-left");
+        const outerSquareBottom = document.getElementById("outer-square-text-bottom");
+        const outerSquareRight = document.getElementById("outer-square-text-right");
+        const innerSquare = document.getElementById("inner-square-text");
+        const outerInput = document.getElementById("outer-input");
+        const outerButton = document.getElementById("outer-button");
+        const innerInput = document.getElementById("inner-input");
+        const innerButton = document.getElementById("inner-button");
+
+        outerButton.addEventListener("click", function () {
+            outerSquareTop.innerText = outerInput.value;
+            outerSquareLeft.innerText = outerInput.value;
+            outerSquareBottom.innerText = outerInput.value;
+            outerSquareRight.innerText = outerInput.value;
+        });
+
+        innerButton.addEventListener("click", function () {
+            innerSquare.innerText = innerInput.value;
+        });
+    </script>
+</body>
+</html>

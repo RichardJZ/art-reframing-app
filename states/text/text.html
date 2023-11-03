@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Text on Image App</title>
+    <style>
+        body {
+            text-align: center;
+            display: grid;
+            place-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        #imageContainer {
+            display: grid;
+            grid-template-areas:
+                "top top top"
+                "left center right"
+                "bottom bottom bottom";
+            grid-template-rows: 50px 170px 50px;
+            grid-template-columns: 50px 300px 50px;
+            gap: 10px;
+        }
+        img {
+            max-width: 100%;
+            grid-area: center;
+        }
+        .text {
+            text-align: center;
+            padding: 10px;
+        }
+        #textInput {
+            grid-area: center;
+        }
+        #topText {
+            grid-area: top;
+        }
+        #bottomText {
+            grid-area: bottom;
+        }
+        #leftText {
+            grid-area: left;
+            writing-mode: vertical-lr;
+
+ display: inline-block;
+
+ margin: 5px;
+ text-orientation: upright;
+        }
+        #rightText {
+            grid-area: right;
+            writing-mode: vertical-lr;
+
+ display: inline-block;
+
+ margin: 5px;
+ text-orientation: upright;
+        }
+    </style>
+</head>
+<body>
+    <h1>Text on Image App</h1>
+    <div id="imageContainer">
+        <img id="uploadedImage" src="lotus2.jpg" alt="Uploaded Image">
+        <div class="text" id="topText"></div>
+
+        <div class="text" id="bottomText"></div>
+        <div class="text" id="leftText"></div>
+        <div class="text" id="rightText"></div>
+    </div>
+
+    <input type="text" id="textInput" placeholder="Enter text">
+    <button onclick="addText()">Add Text</button>
+
+    <script>
+    
+        function addText() {
+            const textInput = document.getElementById("textInput").value;
+            const uploadedImage = document.getElementById("uploadedImage");
+
+            if (!uploadedImage.src) {
+                alert("Please upload an image first.");
+                return;
+            }
+
+            document.getElementById("topText").textContent = textInput;
+            document.getElementById("bottomText").textContent = textInput;
+            document.getElementById("leftText").textContent = textInput;
+            document.getElementById("rightText").textContent = textInput;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fomantic-ui/2.8.7/semantic.min.css">
+
+
+    <title>Image Adjuster</title>
+<style>
+body {
+    text-align: center;
+    display: grid;
+    place-items: center;
+    height: 100vh;
+    margin: 0;
+}
+.image-container {
+    display: grid;
+    grid-template-areas:
+        "top top top"
+        "left center right"
+        "bottom bottom bottom";
+    grid-template-rows: 50px 170px 50px;
+    grid-template-columns: 50px 300px 50px;
+    gap: 10px;
+}
+img {
+    max-width: 100%;
+    grid-area: center;
+}
+.text {
+    text-align: center;
+    padding: 10px;
+    display: none;
+}
+#textInput {
+    grid-area: center;
+}
+#topText {
+    grid-area: top;
+}
+#bottomText {
+    grid-area: bottom;
+}
+#leftText {
+    grid-area: left;
+    writing-mode: vertical-lr;
+
+display: inline-block;
+
+margin: 5px;
+text-orientation: upright;
+}
+#rightText {
+    grid-area: right;
+    writing-mode: vertical-lr;
+
+display: inline-block;
+
+margin: 5px;
+text-orientation: upright;
+}
+
+#square {
+    width: 500px;
+    height: 100px;
+    background-color: lightgray;
+    position: relative;
+}
+
+.point {
+    width: 5px;
+    height: 5px;
+    background-color: red;
+    border-radius: 50%;
+    position: absolute;
+    cursor: pointer;
+}
+
+#point1 {
+  bottom: 10%;
+  left: 10%;
+}
+
+#point2 {
+  bottom: 10%;
+  left: 20%;
+}
+
+#point3 {
+    bottom: 10%;
+    left: 30%;
+}
+
+#point4 {
+    bottom: 10%;
+    left: 40%;
+}
+
+#point5 {
+    bottom: 10%;
+    left: 50%;
+}
+
+#point6 {
+    bottom: 10%;
+    left: 60%;
+}
+
+#point7 {
+    bottom: 10%;
+    left: 70%;
+}
+
+#point8 {
+    bottom: 10%;
+    left: 80%;
+}
+#point9 {
+    bottom: 10%;
+    left: 90%;
+}
+
+
+
+#text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 24px;
+    display: none;
+}
+
+
+</style>
+
+</head>
+<body class="ui container">
+    <h1 class="ui header">Image Adjuster</h1>
+
+    <!-- <div class="ui segment"> -->
+        <div class="image-container">
+            <img id="uploaded-image" alt="Uploaded Image">
+            <div class="text" id="topText"></div>
+            <div class="text" id="bottomText"></div>
+            <div class="text" id="leftText"></div>
+            <div class="text" id="rightText"></div>
+
+            </div>
+
+            <div id="square">
+                <div class="point" id="point1"></div>
+                <div class="point" id="point2"></div>
+                <div class="point" id="point3"></div>
+                <div class="point" id="point4"></div>
+                <div class="point" id="point5"></div>
+                <div class="point" id="point6"></div>
+                <div class="point" id="point7"></div>
+                <div class="point" id="point8"></div>
+                <div class="point" id="point9"></div>
+                <div id="text1"></div>
+
+        </div>
+
+  <!--  </div>  -->
+    <div class="ui segment">
+        <h3 class="ui header">Adjustments</h3>
+        <div class="ui form">
+            <div class="field">
+                <label for="brightness-slider">Brightness</label>
+                <input type="range" id="brightness-slider" min="0" max="200" step="1" value="100">
+            </div>
+    <!--       <div class="field">
+                <label for="width-slider">Width</label>
+                <input type="range" id="width-slider" min="10" max="200" step="1" value="100">
+            </div>
+            <div class="field">
+                <label for="height-slider"></label>
+                <input type="range" id="height-slider" min="10" max="200" step="1" value="100">
+            </div>  --->
+            <div class="field">
+                <label for="background-color-slider">Background Color</label>
+                <input type="range" id="background-color-slider" min="0" max="255" step="1" value="0">
+            </div>
+        </div>
+    </div>
+
+    <div class="ui segment">
+        <div class="ui form">
+            <div class="field">
+                <label for="image-upload">Upload Image</label>
+                <input type="file" id="image-upload" accept="image/*">
+            </div>
+        </div>
+    </div>
+
+
+
+    <input type="text" id="textInput" placeholder="Enter text">
+    <button onclick="addText()">Add Text</button>
+
+    <script src="script.js"></script>
+    <script>
+        function addText() {
+            const textInput = document.getElementById("textInput").value;
+            const uploadedImage = document.getElementById("uploaded-image");
+
+            if (!uploadedImage.src) {
+                alert("Please upload an image first.");
+                return;
+            }
+
+            document.getElementById("topText").textContent = textInput;
+            document.getElementById("bottomText").textContent = textInput;
+            document.getElementById("leftText").textContent = textInput;
+            document.getElementById("rightText").textContent = textInput;
+        }
+    </script>
+
+</body>
+</html>

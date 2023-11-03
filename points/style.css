@@ -1,0 +1,70 @@
+#square {
+    width: 500px;
+    height: 100px;
+    background-color: lightgray;
+    position: relative;
+}
+
+.point {
+    width: 5px;
+    height: 5px;
+    background-color: red;
+    border-radius: 50%;
+    position: absolute;
+    cursor: pointer;
+}
+
+#point1 {
+  bottom: 10%;
+  left: 10%;
+}
+
+#point2 {
+  bottom: 10%;
+  left: 20%;
+}
+
+#point3 {
+    bottom: 10%;
+    left: 30%;
+}
+
+#point4 {
+    bottom: 10%;
+    left: 40%;
+}
+
+#point5 {
+    bottom: 10%;
+    left: 50%;
+}
+
+#point6 {
+    bottom: 10%;
+    left: 60%;
+}
+
+#point7 {
+    bottom: 10%;
+    left: 70%;
+}
+
+#point8 {
+    bottom: 10%;
+    left: 80%;
+}
+#point9 {
+    bottom: 10%;
+    left: 90%;
+}
+
+
+
+#text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 24px;
+    display: none;
+}

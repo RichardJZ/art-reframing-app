@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+    <input type="range" id="opacity-slider" min="0" max="100" step="1" value="100">
+    <input type="range" id="brightness-slider" min="0" max="200" step="1" value="100">
+    <img src="your-image.jpg" alt="Your Image" id="masked-image">
+    <script src="script.js"></script>
+</body>
+</html>
